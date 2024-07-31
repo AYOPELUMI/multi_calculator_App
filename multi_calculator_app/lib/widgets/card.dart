@@ -11,14 +11,24 @@ class SelectCard extends StatelessWidget {
       
     return Card(  
         color: Color(0xFFEAF4F4),
-        child: Center(child: Column(  
-            crossAxisAlignment: CrossAxisAlignment.center,  
+        child: Center(child:
+        Container(
+          padding : EdgeInsets.all(7),
+        child: Column(  
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.center, 
             children: <Widget>[  
-              Expanded(child: Icon(choice.icon, size:50.0)),  
-              Text(choice.title),  
+              Image.asset(choice.icon, width:30, height:30),
+              SizedBox(height: 5,),  
+              Text(choice.title,
+              textAlign: TextAlign.center,
+              style: TextStyle(fontSize: 12,
+              fontWeight: FontWeight.w500,
+              color: Color(0xFF4E5252)
+              ),),  
             ]  
         ),  
-        )  
+        )  )
     );  
   }  
 }  

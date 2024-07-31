@@ -30,12 +30,9 @@ class HomeScreen extends StatelessWidget {
             
           ),
               itemBuilder: (choice, index) {
-                return Container(
-                  color: Colors.grey,
-                  child: Center(
+                return Center(
                     child: SelectCard(choice: choices[index]),
-                  ),
-                );
+                  );
               },
             ),
           ],
