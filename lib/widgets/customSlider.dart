@@ -1,14 +1,12 @@
 import 'package:flutter/material.dart';
 
-class Customslider extends StatefulWidget {
-  const Customslider({super.key});
+// ignore: must_be_immutable
+class Customslider extends StatelessWidget {
+  Customslider({super.key,required this.controller, required this.onChanged});
 
-  @override
-  State<Customslider> createState() => _CustomsliderState();
-}
+  late final controller;
+  late void Function(double?) onChanged;
 
-class _CustomsliderState extends State<Customslider> {
-  double currentValue = 0;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -30,7 +28,7 @@ class _CustomsliderState extends State<Customslider> {
                 color: Color(0xFFEBF6F9),
                 borderRadius: BorderRadius.circular(5),
               ),
-            child: Text('$currentValue',
+            child: Text('$controller',
             textAlign: TextAlign.center,
            style: TextStyle(
               color: Color(0xFF28ADAB)
@@ -39,18 +37,16 @@ class _CustomsliderState extends State<Customslider> {
           ]
         ),
         Slider(
-          value: currentValue,
+          value: controller,
           min: 0,
           divisions:10000,
           thumbColor:Colors.white,
           activeColor: Color(0xFF28ADAB),
           inactiveColor:Color(0xFFE8E8EA),
           max:10000,
-          onChanged: (value){
-            setState((){
-              currentValue = value;
-            });
-          },
+          onChanged:(value){
+            onChanged(value);
+          } 
         )
       ]
     ));
