@@ -8,13 +8,13 @@ import 'package:get/get.dart';
 import '../widgets/loanDetails.dart';
 
 class CalculatorScreen extends StatelessWidget {
-  const CalculatorScreen({super.key});
+  CalculatorScreen({super.key});
+  final EmiController controller = Get.put(EmiController());
   
 
   @override
   Widget build(BuildContext context) {
     return GetBuilder<EmiController>(
-          init: Get.find<EmiController>(),
           builder: (controller) => Scaffold(
       body:Container(
         padding: EdgeInsets.only(top:70, left: 20, right:20),
@@ -27,9 +27,24 @@ class CalculatorScreen extends StatelessWidget {
             color: Colors.black
           )),
           SizedBox(height: 25,),
-          Customslider(controller : controller.principal.value, onChanged: controller.principalOnChanged,),
-          Customslider(controller : controller.rate.value, onChanged : controller.rateOnChanged),
-          Customslider(controller : controller.tenure.value, onChanged: controller.tenureOnChanged),
+          Customslider(
+            controller : controller.principal.value, 
+            onChange: controller.principalOnChanged,
+            minValue: controller.minPrincipal,
+            maxValue: controller.maxPrincipal,
+            divisionsValue: controller.divisionPrincipal,),
+          Customslider(
+            controller : controller.rate.value,
+            onChange : controller.rateOnChanged,
+            minValue: controller.minRate,
+            maxValue: controller.maxRate,
+            divisionsValue: controller.divisionRate,),
+          Customslider(
+            controller : controller.tenure.value,
+             onChange: controller.tenureOnChanged,
+            minValue: controller.minTenure,
+            maxValue: controller.maxTenure,
+            divisionsValue: controller.divisionTenure,),
           LoanDetails(),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,

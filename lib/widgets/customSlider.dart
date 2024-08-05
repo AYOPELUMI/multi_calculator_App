@@ -2,10 +2,13 @@ import 'package:flutter/material.dart';
 
 // ignore: must_be_immutable
 class Customslider extends StatelessWidget {
-  Customslider({super.key,required this.controller, required this.onChanged});
+  Customslider({super.key,required this.controller,required this.onChange, this.minValue, this.maxValue, this.divisionsValue});
 
-  late final controller;
-  late void Function(double?) onChanged;
+  double controller;
+  final minValue;
+  final maxValue;
+  final divisionsValue;
+  late void Function(double) onChange;
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +31,7 @@ class Customslider extends StatelessWidget {
                 color: Color(0xFFEBF6F9),
                 borderRadius: BorderRadius.circular(5),
               ),
-            child: Text('$controller',
+            child: Text(controller.toString(),
             textAlign: TextAlign.center,
            style: TextStyle(
               color: Color(0xFF28ADAB)
@@ -38,15 +41,25 @@ class Customslider extends StatelessWidget {
         ),
         Slider(
           value: controller,
-          min: 0,
-          divisions:10000,
+          min: minValue,
+          divisions:divisionsValue,
           thumbColor:Colors.white,
           activeColor: Color(0xFF28ADAB),
           inactiveColor:Color(0xFFE8E8EA),
-          max:10000,
+          max: maxValue,
           onChanged:(value){
-            onChanged(value);
-          } 
+            onChange(value);
+          },
+            onChangeStart: (double value) {
+        print('Started change at $value');
+            onChange(value);
+
+      },
+      onChangeEnd: (double value) {
+        print('Ended change at $value');
+            onChange(value);
+
+      },
         )
       ]
     ));
