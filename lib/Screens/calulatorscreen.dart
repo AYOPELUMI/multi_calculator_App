@@ -5,6 +5,7 @@ import 'package:calculators/widgets/customSlider.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../utils/constatnts/emiConstant.dart';
 import '../widgets/loanDetails.dart';
 
 class CalculatorScreen extends StatelessWidget {
@@ -14,8 +15,7 @@ class CalculatorScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GetBuilder<EmiController>(
-          builder: (controller) => Scaffold(
+    return Scaffold(
       body:Container(
         padding: EdgeInsets.only(top:70, left: 20, right:20),
         child:Column(
@@ -27,24 +27,23 @@ class CalculatorScreen extends StatelessWidget {
             color: Colors.black
           )),
           SizedBox(height: 25,),
-          Customslider(
-            controller : controller.principal.value, 
-            onChange: controller.principalOnChanged,
-            minValue: controller.minPrincipal,
-            maxValue: controller.maxPrincipal,
-            divisionsValue: controller.divisionPrincipal,),
-          Customslider(
-            controller : controller.rate.value,
-            onChange : controller.rateOnChanged,
-            minValue: controller.minRate,
-            maxValue: controller.maxRate,
-            divisionsValue: controller.divisionRate,),
+          // Customslider(
+          //   controller : controller.principal.value, 
+          //   onChange: controller.principalOnChanged,
+          //   minValue: controller.minPrincipal,
+          //   maxValue: controller.maxPrincipal,
+          //   divisionsValue: controller.divisionPrincipal,),
+          // Customslider(
+          //   controller : controller.rate.value,
+          //   onChange : controller.rateOnChanged,
+          //   minValue: controller.minRate,
+          //   maxValue: controller.maxRate,
+          //   divisionsValue: controller.divisionRate,),
           Customslider(
             controller : controller.tenure.value,
              onChange: controller.tenureOnChanged,
-            minValue: controller.minTenure,
-            maxValue: controller.maxTenure,
-            divisionsValue: controller.divisionTenure,),
+            minValue: EmiConstant.minTenure,
+            maxValue: EmiConstant.maxTenure,),
           LoanDetails(),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -78,6 +77,6 @@ class CalculatorScreen extends StatelessWidget {
 
         ],
       ))
-    ));
+    );
   }
 }
