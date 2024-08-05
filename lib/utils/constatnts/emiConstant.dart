@@ -1,14 +1,17 @@
 class EmiConstant{
   static const double minRate = 0;
   static const double maxRate = 100;
-  static const int divisionRate = 1;
+  static const int divisionRate = 10;
+  static const String descRate = "Rate of Interest (p.a)";
 
   static const double minPrincipal = 0;
-  static const double maxPrincipal = 100000000;
+  static const double maxPrincipal = 1000000;
   static const int divisionPrincipal = 10000;
-
+  static const String descPrincipal = "Loan Amount";
 
   static const double minTenure = 0;
-  static const double maxTenure = 10000000;
+  static const double maxTenure = 10;
   static const int divisionTenure = 1;
+  static const String descTenure = "Loan tenure";
+
 }

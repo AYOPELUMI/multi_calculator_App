@@ -15,7 +15,8 @@ class CalculatorScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return GetBuilder<EmiController>(
+          builder: (controller) => Scaffold(
       body:Container(
         padding: EdgeInsets.only(top:70, left: 20, right:20),
         child:Column(
@@ -27,23 +28,24 @@ class CalculatorScreen extends StatelessWidget {
             color: Colors.black
           )),
           SizedBox(height: 25,),
-          // Customslider(
-          //   controller : controller.principal.value, 
-          //   onChange: controller.principalOnChanged,
-          //   minValue: controller.minPrincipal,
-          //   maxValue: controller.maxPrincipal,
-          //   divisionsValue: controller.divisionPrincipal,),
-          // Customslider(
-          //   controller : controller.rate.value,
-          //   onChange : controller.rateOnChanged,
-          //   minValue: controller.minRate,
-          //   maxValue: controller.maxRate,
-          //   divisionsValue: controller.divisionRate,),
+          Customslider(
+            controller : controller.principal.value, 
+            onChange: controller.principalOnChanged,
+            minValue: EmiConstant.minPrincipal,
+            maxValue: EmiConstant.maxPrincipal,
+            division: EmiConstant.divisionPrincipal,),
+          Customslider(
+            controller : controller.rate.value,
+            onChange : controller.rateOnChanged,
+            minValue: EmiConstant.minRate,
+            maxValue: EmiConstant.maxRate,
+            division: EmiConstant.divisionRate),
           Customslider(
             controller : controller.tenure.value,
              onChange: controller.tenureOnChanged,
             minValue: EmiConstant.minTenure,
-            maxValue: EmiConstant.maxTenure,),
+            maxValue: EmiConstant.maxTenure,
+            division: EmiConstant.divisionTenure),
           LoanDetails(),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -77,6 +79,6 @@ class CalculatorScreen extends StatelessWidget {
 
         ],
       ))
-    );
+    ));
   }
 }
