@@ -18,8 +18,8 @@ class CalculatorScreen extends StatelessWidget {
     return GetBuilder<EmiController>(
           builder: (controller) => Scaffold(
       body:Container(
-        padding: EdgeInsets.only(top:70, left: 20, right:20),
-        child:Column(
+        padding: EdgeInsets.only(top:70, left: 11, right:20),
+       child:Column(
           crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text("Loan Calculator", style: TextStyle(
@@ -34,8 +34,8 @@ class CalculatorScreen extends StatelessWidget {
             minValue: EmiConstant.minPrincipal,
             maxValue: EmiConstant.maxPrincipal,
             division: EmiConstant.divisionPrincipal,
-            description: EmiConstant.descPrincipal,
-            symbol: "#",),
+            description: "Loan Amount",
+            symbol: "",),
           Customslider(
             controller : controller.rate.value,
             onChange : controller.rateOnChanged,
@@ -52,40 +52,55 @@ class CalculatorScreen extends StatelessWidget {
             division: EmiConstant.divisionTenure,
             description: EmiConstant.descTenure,
             symbol: "Yr",),
-          LoanDetails(emiValue: controller.getEmi(),
-          principal : controller.principal.value,
-          interest: controller.getTotalInterest(),
-          totalAmount: controller.getTotalAmount()),
+         Container(
+          height:180,
+           margin: EdgeInsets.only(bottom: 20),
+          child: LoanDetails(
+            items:[
+              [
+            "Monthly EMI",controller.getEmi(),
+              ],
+              [
+                "Principal Amount", controller.principal.value,
+              ],
+              [
+                "Total Interest" ,controller.getTotalInterest(),
+              ],
+              [
+                "Total Amount", controller.getTotalAmount(),
+              ]]
+          )
+         ) ,
+         
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children:[
               TextButton.icon(
-    style: TextButton.styleFrom(
-      textStyle: TextStyle(color:Colors.white ),
-      backgroundColor: Color(0xFF28ADAB),
-      shape:RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(6.0),
-      ), 
-    ),
-    onPressed: () => {},
-    icon: Icon(Icons.share_outlined,color:Colors.white),
-    label: Text('share',style: TextStyle(color:Colors.white)),
-  ),
-  SizedBox(width:40),
-  TextButton(
-    style: TextButton.styleFrom(
-      textStyle: TextStyle(color: Colors.white),
-      backgroundColor: Color(0xFF28ADAB),
-      shape:RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(6.0),
-      ), 
-    ),
-    onPressed: () => {},
-    child: Text('save as PDF',style: TextStyle(color: Colors.white),),
-  ),
+                style: TextButton.styleFrom(
+                  textStyle: TextStyle(color:Colors.white ),
+                  backgroundColor: Color(0xFF28ADAB),
+                  shape:RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(6.0),
+                  ), 
+                ),
+                onPressed: () => {},
+                icon: Icon(Icons.share_outlined,color:Colors.white),
+                label: Text('share',style: TextStyle(color:Colors.white)),
+              ),
+              SizedBox(width:40),
+              TextButton(
+                style: TextButton.styleFrom(
+                  textStyle: TextStyle(color: Colors.white),
+                  backgroundColor: Color(0xFF28ADAB),
+                  shape:RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(6.0),
+                  ), 
+                ),
+                onPressed: () => {},
+                child: Text('save as PDF',style: TextStyle(color: Colors.white),),
+              ),
             ]
           )
-
         ],
       ))
     ));

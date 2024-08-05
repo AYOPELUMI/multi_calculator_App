@@ -1,9 +1,8 @@
-import 'package:calculators/Screens/calulatorscreen.dart';
+import 'package:calculators/Screens/sipscreen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import 'Bindings/bindings.dart';
-import 'Routes/routes.dart';
 
 // import 'Screens/homescreen.dart';
 
@@ -18,13 +17,13 @@ class MyApp extends StatelessWidget {
       initialBinding : MyBindings(),
       title: 'Multi Calculator',
       getPages: [
-        GetPage(name: Routes.EmiScreenRoute, page: () => CalculatorScreen())
+        // GetPage(name: Routes.EmiScreenRoute, page: () => CalculatorScreen())
       ],
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home:  CalculatorScreen(),
+      home:  SipScreen(),
     );
   }
 }

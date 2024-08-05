@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../utils/constatnts/formatter.dart';
 
 // ignore: must_be_immutable
 class Customslider extends StatelessWidget {
@@ -24,7 +25,7 @@ class Customslider extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(10),
+      padding: EdgeInsets.all(1),
       child:Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children:[
@@ -37,12 +38,12 @@ class Customslider extends StatelessWidget {
               fontWeight: FontWeight.w400
             )),
             Container(
-              padding: EdgeInsets.all(6),
+              padding: EdgeInsets.only(bottom:2),
               decoration: BoxDecoration(
                 color: Color(0xFFEBF6F9),
                 borderRadius: BorderRadius.circular(5),
               ),
-            child: Text('${controller.round().toString()} $symbol',
+            child: Text(symbol !="" ?'${controller.round().toString()} $symbol' : NairaFormatter.format(controller),
             textAlign: TextAlign.center,
            style: TextStyle(
               color: Color(0xFF28ADAB)
@@ -51,7 +52,7 @@ class Customslider extends StatelessWidget {
           ]
         ),
         Slider(
-          value: controller,
+          value: controller.toDouble(),
           min: minValue,
           divisions:(maxValue-minValue).toInt(),
           thumbColor:Colors.white,
