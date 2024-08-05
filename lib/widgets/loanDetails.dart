@@ -1,43 +1,50 @@
 import 'package:flutter/material.dart';
 
 class LoanDetails extends StatelessWidget {
-  const LoanDetails({super.key});
+  const LoanDetails({
+    super.key,
+    required this.emiValue,
+    required this.interest,
+    required this.principal,
+    required this.totalAmount});
+
+  final principal , totalAmount, emiValue, interest;
 
   @override
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.only(top:30, bottom:40),
-      child:const Column(
+      child: Column(
         children:[
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children:[
                   Text("Monthly EMI"),
-                  Text("#24,666",)
+                  Text('${emiValue}')
                 ] 
               ),
               SizedBox(height:13),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children:[
-                  Text("Monthly EMI"),
-                  Text("#24,666",)
+                  Text("Principal Amount"),
+                  Text('$principal',)
                 ] 
               ),
               SizedBox(height:10),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children:[
-                  Text("Monthly EMI"),
-                  Text("#24,666",)
+                  Text("Total Interest"),
+                  Text('$interest',)
                 ] 
               ),
               SizedBox(height:10),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children:[
-                  Text("Monthly EMI"),
-                  Text("#24,666",)
+                  Text("Total Amount"),
+                  Text('$totalAmount',)
                 ] 
               ),
         ]
