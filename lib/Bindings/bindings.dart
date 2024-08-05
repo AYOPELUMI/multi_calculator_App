@@ -4,6 +4,7 @@ import '../Controllers/emicontroller.dart';
 import '../Controllers/fdcontroller.dart';
 import '../Controllers/sipcontroller.dart';
 import '../Controllers/swpcontroller.dart';
+import '../Controllers/rdcontroller.dart';
 
 
 
@@ -14,6 +15,7 @@ class MyBindings implements Bindings {
     Get.lazyPut(() => SipController());
     Get.lazyPut(() => SwpController());
     Get.lazyPut(() => FdController());
+    Get.lazyPut(() => RdController());
   }
   
 }

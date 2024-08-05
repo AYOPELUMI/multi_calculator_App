@@ -22,7 +22,7 @@ class SipScreen extends StatelessWidget {
         child:Column(
           crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text("Loan Calculator", style: TextStyle(
+          Text("SIP Calculator", style: TextStyle(
             fontSize:18,
             fontWeight: FontWeight.bold,
             color: Colors.black

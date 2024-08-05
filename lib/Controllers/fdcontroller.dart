@@ -26,8 +26,6 @@ void rateOnChanged(newValue){
   double getFD() {
     double annualRate = rate.value / 100;
 
-    // Compound interest formula: A = P * (1 + r/n)^(nt)
-    // For FD, interest is compounded yearly, so n = 1
     double amount = principal.value * pow(1 + annualRate, tenure.value) - principal.value;
 
    return maturity.value = amount;

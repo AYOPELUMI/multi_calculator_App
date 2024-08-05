@@ -1,4 +1,4 @@
-import 'package:calculators/Screens/fdscreen.dart';
+import 'package:calculators/Screens/rdscreen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home:  FdScreen(),
+      home:  RdScreen(),
     );
   }
 }
