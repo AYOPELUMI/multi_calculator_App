@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../choice.dart';
+import '../data/choice.dart';
 import '../widgets/card.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -21,13 +21,14 @@ class HomeScreen extends StatelessWidget {
               child:const Text("Popular Calculator", style:TextStyle(
                 fontWeight: FontWeight.bold, fontSize:20)),),
             GridView.builder(
+              padding: EdgeInsets.all(10),
               physics: const NeverScrollableScrollPhysics(),
               itemCount: choices.length,
               shrinkWrap: true,
                 gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: 3,
-            crossAxisSpacing: 3,
-            mainAxisSpacing: 3,
+            crossAxisSpacing: 6,
+            mainAxisSpacing: 8,
             
           ),
               itemBuilder: (choice, index) {

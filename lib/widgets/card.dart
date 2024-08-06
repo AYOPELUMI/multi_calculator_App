@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+
+import '../utils/constants/color.dart';
 
 class SelectCard extends StatelessWidget {
   final choice;
@@ -10,10 +13,12 @@ class SelectCard extends StatelessWidget {
   Widget build(BuildContext context) {  
       
     return Card(  
-        color: const Color(0xFFEAF4F4),
+        color: primaryColor,
         elevation: 5,
-        child: Center(child:
-        Container(
+          child:GestureDetector(
+          onTap: (){
+            Get.toNamed(choice.route);}, 
+          child: Center( child: Container(
           padding : const EdgeInsets.all(7),
         child: Column(  
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -29,7 +34,7 @@ class SelectCard extends StatelessWidget {
               ),),  
             ]  
         ),  
-        )  )
+        ) ) )
     );  
   }  
 }  

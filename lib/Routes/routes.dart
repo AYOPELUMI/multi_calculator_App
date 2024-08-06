@@ -1,7 +1,9 @@
 class Routes{
-  static const EmiScreenRoute = "/emi_screen";
-  static const SipScreenRoute = "/sip_screen";
-  static const SwpScreenRoute = "/swp_screen";
-  static const FdScreenRoute = "/fd_screen";
-  
+  static const emiScreenRoute = "/emi_screen";
+  static const sipScreenRoute = "/sip_screen";
+  static const swpScreenRoute = "/swp_screen";
+  static const fdScreenRoute = "/fd_screen";
+  static const rdScreenRoute = "/rd_screen";
+
+
 }

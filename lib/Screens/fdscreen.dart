@@ -1,11 +1,12 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:calculators/Controllers/fdcontroller.dart';
+import 'package:calculators/widgets/buttons.dart';
 import 'package:calculators/widgets/customSlider.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../utils/constatnts/fdconstant.dart';
+import '../utils/constants/fdconstant.dart';
 import '../widgets/loanDetails.dart';
 
 class FdScreen extends StatelessWidget {
@@ -61,43 +62,16 @@ class FdScreen extends StatelessWidget {
                 "Invested Amount", controller.principal.value,
               ],
               [
-            "Est, returns",controller.getFD(),
+            "Est. returns",controller.getFD(),
               ],
               [
                 "Total value", controller.getTotalAmount(),
               ]]
           )
          ) ,
-         
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children:[
-              TextButton.icon(
-                style: TextButton.styleFrom(
-                  textStyle: TextStyle(color:Colors.white ),
-                  backgroundColor: Color(0xFF28ADAB),
-                  shape:RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(6.0),
-                  ), 
-                ),
-                onPressed: () => {},
-                icon: Icon(Icons.share_outlined,color:Colors.white),
-                label: Text('share',style: TextStyle(color:Colors.white)),
-              ),
-              SizedBox(width:40),
-              TextButton(
-                style: TextButton.styleFrom(
-                  textStyle: TextStyle(color: Colors.white),
-                  backgroundColor: Color(0xFF28ADAB),
-                  shape:RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(6.0),
-                  ), 
-                ),
-                onPressed: () => {},
-                child: Text('save as PDF',style: TextStyle(color: Colors.white),),
-              ),
-            ]
-          )
+          ButtonWidget(item:[
+            "Est, returns",controller.getFD(),
+              ],)
         ],
       ))
     ));

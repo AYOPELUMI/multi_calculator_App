@@ -1,4 +1,4 @@
-import 'package:calculators/utils/constatnts/formatter.dart';
+import 'package:calculators/utils/constants/formatter.dart';
 import 'package:flutter/material.dart';
 
 class LoanDetails extends StatelessWidget {

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../utils/constatnts/formatter.dart';
+import '../utils/constants/color.dart';
+import '../utils/constants/formatter.dart';
 
 // ignore: must_be_immutable
 class Customslider extends StatelessWidget {
@@ -40,13 +41,13 @@ class Customslider extends StatelessWidget {
             Container(
               padding: EdgeInsets.only(bottom:2),
               decoration: BoxDecoration(
-                color: Color(0xFFEBF6F9),
+                color: primaryColor,
                 borderRadius: BorderRadius.circular(5),
               ),
             child: Text(symbol !="" ?'${controller.round().toString()} $symbol' : NairaFormatter.format(controller),
             textAlign: TextAlign.center,
            style: TextStyle(
-              color: Color(0xFF28ADAB)
+              color: secondaryColor
             ))
             )
           ]
@@ -55,9 +56,9 @@ class Customslider extends StatelessWidget {
           value: controller.toDouble(),
           min: minValue,
           divisions:(maxValue-minValue).toInt(),
-          thumbColor:Colors.white,
-          activeColor: Color(0xFF28ADAB),
-          inactiveColor:Color(0xFFE8E8EA),
+          thumbColor:whiteBg,
+          activeColor: secondaryColor,
+          inactiveColor:thirdColor,
           max: maxValue,
           onChanged:(value){
             onChange(value);
