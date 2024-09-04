@@ -9,7 +9,7 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) { 
     return Scaffold(
       appBar: AppBar(
-        title: Text("Home")
+        title: const Text("Home")
       ),
         body: Container(
       child: SingleChildScrollView(
@@ -17,13 +17,13 @@ class HomeScreen extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Container(
-              padding: EdgeInsets.symmetric(vertical: 20),
-              child:Text("Popular Calculator"),),
+              padding: const EdgeInsets.symmetric(vertical: 20),
+              child:const Text("Popular Calculator"),),
             GridView.builder(
-              physics: NeverScrollableScrollPhysics(),
+              physics: const NeverScrollableScrollPhysics(),
               itemCount: choices.length,
               shrinkWrap: true,
-                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: 3,
             crossAxisSpacing: 2,
             mainAxisSpacing: 5,
