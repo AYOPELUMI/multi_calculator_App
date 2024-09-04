@@ -6,7 +6,7 @@ import 'package:calculators/widgets/customSlider.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../utils/constatnts/RdConstant.dart';
+import '../utils/constants/RdConstant.dart';
 import '../widgets/loanDetails.dart';
 
 class RdScreen extends StatelessWidget {

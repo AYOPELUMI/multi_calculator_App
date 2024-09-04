@@ -6,7 +6,7 @@ import 'package:calculators/widgets/customSlider.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../utils/constatnts/SipConstant.dart';
+import '../utils/constants/sipconstant.dart';
 import '../widgets/loanDetails.dart';
 
 
